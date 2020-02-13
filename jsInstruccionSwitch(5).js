@@ -3,7 +3,7 @@ function mostrar()
 //tomo la edad  
 var laHora = document.getElementById('hora').value;
 
-//alert (laHora);
+//var hora = parseInt(laHora) //saco comillas a los numeros 
 	
 	switch (laHora)
 {
