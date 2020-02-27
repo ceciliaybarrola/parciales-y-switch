@@ -1,37 +1,51 @@
 function mostrar()
 {
- var num;
-    var i=0;
-    var sexo;
-    var contFem=0;
-    var contMasc=0;
-    var promedio;
-    var min=num;
-    var nota=0;
+var i=0;
+var nota;
+var acNota=0;
+var min=0;
+var varonesAprobados=0;
+var sexo;
+var acSexo;
+var promedio;
 
-    num=parseInt(num);
-
-    while (i<5)
+while(i<5)
+{
+    nota=prompt("ingrese nota");
+    sexo=prompt("ingrese sexo");
+    
+    if (nota<0 || nota>10)
     {
-       // sexo=prompt("ingrese sexo");
-        num= parseInt(prompt("ingrese nota"));
-        nota=parseInt(nota)+parseInt(num);
-        if(num<min)
-        {
-            min=num;
-
-        }
-        if(num>=6 && sexo=="m")
-        {
-            contMasc++;
-        }
-        i++;
+        alert("no es una nota valida")
+        break;
     }
-promedio=nota/i;
-alert("El promedio es: "+promedio);
-alert("La nota mas baja es: "+min);
-alert("La cantidad de varones aprobados es: "+contMasc);
+    if (sexo !="m" && sexo !="f")
+    {
+        alert("no es un sexo valido. Ingrese `f´ o `m´")
+        break;
+    }
+   //hacerlo con un while
+    else
+    {
+        if (nota>=6 && sexo=="m")
+        {
+            varonesAprobados++
+        }
+        if (min>nota)
+        {
+            min=nota;//no anda
+            acSexo=sexo;
 
+        }
+    
+    }
 
+    acNota=acNota+parseInt(nota);
+    i++
+}
 
+promedio=acNota/i;
+alert("El promedio de la notas es: "+promedio);
+alert("la nota mas baja es "+min+" y el sexo es "+acSexo);
+alert("la cantidad de varones aprobados es: "+varonesAprobados);
 }
